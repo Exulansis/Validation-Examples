@@ -1,0 +1,14 @@
+{
+  "name": "Validation-Examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Exulansis/Validation-Examples.git",
+  "author": "Exulansis <rusu.eugeniu@gmx.de>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.12.8",
+    "ethereumjs-wallet": "^0.6.2",
+    "jolocom-lib": "^2.1.1",
+    "node-fetch": "^2.3.0"
+  }
+}
