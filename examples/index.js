@@ -1,24 +1,15 @@
 const { createCredentialRequest, consumeCredentialResponse } = require('./service')
 const { createCredentialResponse } = require('./client')
 const { getIdentity } = require('./authenticate')
-// import { createNewIdentity } from './create'
-// import { SoftwareKeyProvider } from 'jolocom-lib/js/vaultedKeyProvider/softwareProvider'
 
 /**
  * Defining mock data for creating identities
  */
-
 const serviceEncryptionPass = 'service_secret'
 const serviceSeed = Buffer.from('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hex')
 
 const clientEncryptionPass = 'client_secret'
 const clientSeed = Buffer.from('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'hex')
-
-/** Example for how to create a new identity given entropy and encryption password
- * @example
- * const vault = new SoftwareKeyProvider(serviceSeed, serviceEncryptionPass)
- * createNewIdentity(vault, serviceEncryptionPass)
- */
 
 const simulateFlow = async () => {
   const serviceIdentity = await getIdentity(serviceSeed, serviceEncryptionPass)
@@ -35,3 +26,11 @@ const simulateFlow = async () => {
 }
 
 simulateFlow()
+
+/** The snippet above authenticates as existing identities. In case you wish to create a new identity,
+ * use the snippet below
+ * 
+ * @example
+ * const vault = new SoftwareKeyProvider(serviceSeed, serviceEncryptionPass)
+ * createNewIdentity(vault, serviceEncryptionPass)
+ */
