@@ -21,7 +21,7 @@ const simulateFlow = async () => {
   /** Normally done by the wallet */
   const credentialResponse = await createCredentialResponse(credentialRequest, clientIdentity, clientEncryptionPass)
 
-  // /** Validation, and data extraction, can run on the service backend, or on rpi */
+  /** Validation, currently throws if something is wrong, otherwise returns true*/
   await consumeCredentialResponse(credentialResponse, credentialRequest, serviceIdentity)
 }
 

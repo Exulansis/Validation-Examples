@@ -34,6 +34,8 @@ exports.consumeCredentialResponse = async (credentialResponseJWT, credentialRequ
   if (!response.interactionToken.satisfiesRequest(request.interactionToken)) {
     throw new Error('Invalid credential passed, make sure issuer is currect.')
   }
+  
+  return true
 }
 
 /**
