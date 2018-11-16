@@ -1,6 +1,6 @@
-import { createCredentialRequest, consumeCredentialResponse } from './service'
-import { createCredentialResponse } from './client'
-import { getIdentity } from './authenticate'
+const { createCredentialRequest, consumeCredentialResponse } = require('./service')
+const { createCredentialResponse } = require('./client')
+const { getIdentity } = require('./authenticate')
 // import { createNewIdentity } from './create'
 // import { SoftwareKeyProvider } from 'jolocom-lib/js/vaultedKeyProvider/softwareProvider'
 

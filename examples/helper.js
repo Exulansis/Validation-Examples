@@ -1,5 +1,5 @@
-import * as fetch from 'node-fetch'
-import * as wallet from 'ethereumjs-wallet'
+const  fetch = require('node-fetch')
+const wallet = require('ethereumjs-wallet')
 
 /**
  * @description Fuels the address with a bit of test Eth so it can pay for the registration
@@ -11,8 +11,7 @@ import * as wallet from 'ethereumjs-wallet'
 
 /** A jolocom hosted fueling service */
 
-export const _fuelWithEther = (address: string) => {
-  console.log(address)
+exports._fuelWithEther = (address) => {
   return fetch('https://faucet.jolocom.com/request/', {
     method: 'POST',
     body: JSON.stringify({ address: `0x${address}` }),
@@ -27,4 +26,4 @@ export const _fuelWithEther = (address: string) => {
  * @param key - Public key of ethereum account
  */
 
-export const pubToAddress = (key: Buffer): string => new wallet.fromPublicKey(key, true).getAddress().toString('hex')
+exports.pubToAddress = (key) => new wallet.fromPublicKey(key, true).getAddress().toString('hex')

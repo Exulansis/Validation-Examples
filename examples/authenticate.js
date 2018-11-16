@@ -1,8 +1,8 @@
-import { JolocomLib } from 'jolocom-lib'
-import { SoftwareKeyProvider } from 'jolocom-lib/js/vaultedKeyProvider/softwareProvider'
-import { KeyTypes } from 'jolocom-lib/js/vaultedKeyProvider/types'
+const { JolocomLib } = require('jolocom-lib')
+const { SoftwareKeyProvider } = require('jolocom-lib/js/vaultedKeyProvider/softwareProvider')
+const { KeyTypes } = require('jolocom-lib/js/vaultedKeyProvider/types')
 
-export const getIdentity = async (seed, password) => {
+exports.getIdentity = async (seed, password) => {
   const reg = JolocomLib.registries.jolocom.create()
   /** Defining seed (32 random bytes) that will be used to derive service identity keys
    * and password that will be used to encrypt the seed using aes256 cbc

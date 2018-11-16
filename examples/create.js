@@ -1,7 +1,6 @@
-import { SoftwareKeyProvider } from 'jolocom-lib/js/vaultedKeyProvider/softwareProvider'
-import { _fuelWithEther,pubToAddress } from './helpers'
-import { KeyTypes } from 'jolocom-lib/js/vaultedKeyProvider/types'
-import { JolocomLib } from 'jolocom-lib'
+const { _fuelWithEther, pubToAddress } = require('./helper')
+const { KeyTypes } = require('jolocom-lib/js/vaultedKeyProvider/types')
+const { JolocomLib } = require('jolocom-lib')
 
 /**
  * @description Helper function to create a new jolocom
@@ -10,7 +9,7 @@ import { JolocomLib } from 'jolocom-lib'
  * @returns {IdentityWallet} - Instance of identity wallet ready for use
  */
 
-export const createNewIdentity = async (vault: SoftwareKeyProvider, encryptionPass: string) => {
+exports.createNewIdentity = async (vault, encryptionPass) => {
   /** Derive a keypair used to pay for ethereum transactions */
   const pubKeyToFuel = vault.getPublicKey({ derivationPath: KeyTypes.ethereumKey, encryptionPass })
 

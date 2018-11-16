@@ -1,7 +1,5 @@
-import { claimsMetadata } from 'jolocom-lib'
-import { JSONWebToken } from 'jolocom-lib/js/interactionTokens/JSONWebToken'
-import { CredentialRequest } from 'jolocom-lib/js/interactionTokens/credentialRequest'
-import { IdentityWallet } from 'jolocom-lib/js/identityWallet/identityWallet'
+const { claimsMetadata } = require('jolocom-lib')
+const { JSONWebToken } = require('jolocom-lib/js/interactionTokens/JSONWebToken')
 
 /**
  * @description Mock client that parses the credential request, validates it, then generates a response, signs it, and sends it.
@@ -10,13 +8,9 @@ import { IdentityWallet } from 'jolocom-lib/js/identityWallet/identityWallet'
  * @returns JWT - Valid credential response as base64 encoded JWT
  */
 
-export const createCredentialResponse = async (
-  requestJWT,
-  clientIdentity: IdentityWallet,
-  encryptionPass: string
-): Promise<string> => {
+exports.createCredentialResponse = async ( requestJWT, clientIdentity, encryptionPass) => {
   /** Decode the received credential request JSON web token */
-  const credRequest = JSONWebToken.decode<CredentialRequest>(requestJWT)
+  const credRequest = JSONWebToken.decode(requestJWT)
 
   /** Validate the JWT (verifies for expiration date, and signature) */
   await clientIdentity.validateJWT(credRequest)
